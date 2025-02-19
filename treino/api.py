@@ -71,9 +71,9 @@ def aula_realizada(request, aula_realizada: AulaRealizadaSchema):
         )
         ac.save()
 
-    return 200, f"Aula marcada como realizada para {aluno.nome}"
+    return 200, f"Aula marcada como realizada para o aluno{aluno.nome}"
 
-@treino_router.put('/aulunos/{aluno_id}', response=AlunosSchema)
+@treino_router.put('/alunos/{aluno_id}', response=AlunosSchema)
 def update_aluno(request, aluno_id:int, aluno_data: AlunosSchema):
     aluno = Alunos.objects.get(id=aluno_id)
     idade = date.today() - aluno.data_nascimento
